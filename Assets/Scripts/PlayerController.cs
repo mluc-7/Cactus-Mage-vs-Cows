@@ -36,13 +36,6 @@ public class PlayerController : MonoBehaviour
         // move the player based on the movement input
         //maybe add dampener
         rb.velocity = moveDirection * moveSpeed;
-
-        // rotate the player sprite to face the mouse pointer 
-        Vector2 aimDirection = mousePosition - rb.position;//get the direction vector between the player and the mousePosition
-        //we use atan to find the angle (since we know the opposite side and adjacent side lengths from the aimDirection vector)
-        //since the result of Atan2 is in radians, we need to convert it to degreees, and finally we need to rotate the player gameObject 90 degrees to face the mousePosition.
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = aimAngle;
     }
 
     void LateUpdate()

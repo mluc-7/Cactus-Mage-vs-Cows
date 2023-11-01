@@ -1,91 +1,51 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    int playerAmmo;
-    int playerMaxAmmo;
-    float bulletCooldown;//timer to stop player from overcoming reload rate by spamming the mouse click
-    float reloadTimer; //timer for reloading
-    float reloadTime;//time for reload
-    public float fireRate = 1f;
-    public Transform firePoint; // the point where the bullets will be spawned
-    public GameObject bulletPrefab; // the bullet prefab to be spawned
-    [SerializeField] GameObject reloadBar;
-    [SerializeField] GameObject reloadText;
-    [SerializeField] TMPro.TextMeshProUGUI ammoText;
+    public Transform gunTransform;
+    public float shootingRange = 10f;
+    public float shootingCooldown = 1f;
+    public GameObject bulletPrefab;
 
-    void Start()
+    private Transform closestEnemy;
+    private float lastShotTime;
+
+    private void Update()
     {
-        //sanity check for reload bar
-        if (reloadBar == null)
+        FindClosestEnemy();
+
+        if (closestEnemy != null && Time.time - lastShotTime >= shootingCooldown)
         {
-            reloadBar = GetComponent<GameObject>();
+            ShootAtEnemy();
         }
-
-        playerMaxAmmo = 6;
-        playerAmmo = playerMaxAmmo;
-        reloadBar.SetActive(false);
-        reloadText.SetActive(false);
-
     }
-    void Update()
+
+    void FindClosestEnemy()
     {
-        if (Input.GetButton("Fire1")) // if the left mouse button is pressed
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        float closestDistance = shootingRange;
+        closestEnemy = null;
+
+        foreach (GameObject enemy in enemies)
         {
-            if (bulletCooldown <=0 && playerAmmo > 0 && reloadTimer <=0)
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+            if (distance < closestDistance)
             {
-                Shoot(); // call the Shoot function
-                bulletCooldown = fireRate;
+                closestDistance = distance;
+                closestEnemy = enemy.transform;
             }
-            bulletCooldown -= Time.deltaTime;  
         }
-        if (Input.GetButtonUp("Fire1")) //start reload as soon as mouse button is released
-        {
-            reloadTime = 0.5f;
-            reloadTimer = reloadTime;
-            bulletCooldown = 0.5f;
-        }
-
-        if (reloadTimer > 0)
-        {
-            reloadTimer -= Time.deltaTime;
-            ReloadBar(reloadTimer, reloadTime);
-            playerAmmo = 6;
-            AmmoText();
-        }
-        if (reloadTimer < 0)
-        {
-            reloadText.SetActive(false);
-        }    
-        
-
     }
 
-    void Shoot()
+    void ShootAtEnemy()
     {
-        // spawn a new bullet at the fire point 
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        playerAmmo--;
-        AmmoText();
-    }
-    //function to update reload bar
-    void ReloadBar(float reloadTimer, float reloadTime)
-    {
-        reloadBar.SetActive(true); //show the reload bar
-        reloadText.SetActive(true); //show the reload text
-        float reloadPercent = reloadTimer / reloadTime;
-        if (reloadPercent < 0)
+        if (gunTransform != null)
         {
-            reloadPercent = 0f;
+            Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
+            lastShotTime = Time.time;
         }
-        reloadBar.transform.localScale = new Vector3(reloadPercent, 1f, 1f); //change the localScale of the x-axis to show the change in the bar
-    }
-
-    //function to update ammo text
-    void AmmoText()
-    {
-        ammoText.text = "Ammo: " + playerAmmo.ToString();
     }
 }
