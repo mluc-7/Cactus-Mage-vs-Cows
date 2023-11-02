@@ -18,22 +18,22 @@ MonoBehaviour:
     enemyToSpawn: {fileID: 0}
     enemyCount: 3
   - time: 10
+    message: 4 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 4
+  - time: 15
     message: 5 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 5
-  - time: 15
+  - time: 20
+    message: 6 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 6
+  - time: 30
     message: 7 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 7
-  - time: 20
-    message: 9 enemies spawned!
-    enemyToSpawn: {fileID: 0}
-    enemyCount: 9
-  - time: 30
-    message: 10 enemies spawned!
-    enemyToSpawn: {fileID: 0}
-    enemyCount: 10
   - time: 40
-    message: 12 enemies spawned!
+    message: 8 enemies spawned!
     enemyToSpawn: {fileID: 0}
-    enemyCount: 12
+    enemyCount: 8
