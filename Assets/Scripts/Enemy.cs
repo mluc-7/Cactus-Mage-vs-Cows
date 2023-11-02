@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int damage = 2;
     [SerializeField] int xpDrop = 400;
     [SerializeField] float enemyMovespeed = 3f;
+    [SerializeField] GameObject deathEffect;
 
     Transform targetDestination;
     
@@ -79,6 +80,7 @@ public class Enemy : MonoBehaviour
         targetGameobject.GetComponent<Level>().AddXp(xpDrop);
         //check if they drop items
         GetComponent<DropOnDestroy>().CheckDrop();
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject); // destroy the enemy game object
         
     }

@@ -4,48 +4,72 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    public Transform gunTransform;
-    public float shootingRange = 10f;
-    public float shootingCooldown = 1f;
+    public GameObject enemy;
+    public float shootRange = 10f;
+    public float fireRate = 1f; // Adjust the rate of fire as needed.
+    public Transform firePoint;
     public GameObject bulletPrefab;
 
-    private Transform closestEnemy;
-    private float lastShotTime;
+    private Transform target;
+    private float nextFireTime;
+
+    private void Start()
+    {
+        FindNearestEnemy();
+    }
 
     private void Update()
     {
-        FindClosestEnemy();
-
-        if (closestEnemy != null && Time.time - lastShotTime >= shootingCooldown)
+        if (Time.time > nextFireTime)
         {
-            ShootAtEnemy();
-        }
-    }
-
-    void FindClosestEnemy()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        float closestDistance = shootingRange;
-        closestEnemy = null;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-
-            if (distance < closestDistance)
+            if (target != null)
             {
-                closestDistance = distance;
-                closestEnemy = enemy.transform;
+                // Check if the target is within range.
+                if (Vector2.Distance(transform.position, target.position) <= shootRange)
+                {
+                    // Fire at the target.
+                    Shoot();
+                    nextFireTime = Time.time + 1f / fireRate;
+                }
+                else
+                {
+                    // If the target is out of range, find a new nearest enemy.
+                    FindNearestEnemy();
+                }
+            }
+            else
+            {
+                // If there is no target, find a new nearest enemy.
+                FindNearestEnemy();
             }
         }
     }
 
-    void ShootAtEnemy()
+    private void FindNearestEnemy()
     {
-        if (gunTransform != null)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Tag your enemy GameObjects as "Enemy."
+        float closestDistance = float.MaxValue;
+        GameObject nearestEnemy = null;
+
+        foreach (GameObject e in enemies)
         {
-            Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
-            lastShotTime = Time.time;
+            float distance = Vector2.Distance(transform.position, e.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                nearestEnemy = e;
+            }
         }
+
+        target = nearestEnemy != null ? nearestEnemy.transform : null;
+    }
+
+    private void Shoot()
+    {
+        Vector3 direction = target.transform.position - transform.position;
+        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        Quaternion rotDirection = Quaternion.Euler(0, 0, rot);
+        Instantiate(bulletPrefab, firePoint.position, rotDirection);
+
     }
 }
