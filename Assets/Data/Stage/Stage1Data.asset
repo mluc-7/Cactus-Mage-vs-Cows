@@ -13,27 +13,51 @@ MonoBehaviour:
   m_Name: Stage1Data
   m_EditorClassIdentifier: 
   stageEvents:
-  - time: 5
+  - time: 0
     message: 3 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 3
-  - time: 10
+  - time: 5
     message: 4 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 4
-  - time: 15
+  - time: 10
     message: 5 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 5
-  - time: 20
+  - time: 15
     message: 6 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 6
-  - time: 30
+  - time: 20
     message: 7 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 7
-  - time: 40
+  - time: 25
     message: 8 enemies spawned!
     enemyToSpawn: {fileID: 0}
     enemyCount: 8
+  - time: 30
+    message: 8 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 9
+  - time: 35
+    message: 8 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 10
+  - time: 40
+    message: 8 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 11
+  - time: 45
+    message: 8 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 12
+  - time: 50
+    message: 8 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 13
+  - time: 55
+    message: 8 enemies spawned!
+    enemyToSpawn: {fileID: 0}
+    enemyCount: 14
