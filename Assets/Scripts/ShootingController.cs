@@ -9,8 +9,9 @@ public class ShootingController : MonoBehaviour
     public float fireRate = 1f; // Adjust the rate of fire as needed.
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public List<GameObject> enemiesInRange = new List<GameObject>();
 
-    private Transform target;
+    public Transform target;
     private float nextFireTime;
 
     private void Start()
@@ -20,6 +21,8 @@ public class ShootingController : MonoBehaviour
 
     private void Update()
     {
+        FindNearestEnemy();
+
         if (Time.time > nextFireTime)
         {
             if (target != null)
@@ -45,23 +48,42 @@ public class ShootingController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && !enemiesInRange.Contains(other.gameObject))
+        {
+            enemiesInRange.Add(other.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && enemiesInRange.Contains(other.gameObject))
+        {
+            enemiesInRange.Remove(other.gameObject);
+            if (target == other.transform)
+            {
+                target = null; // Reset target if the current target exits the trigger.
+            }
+        }
+    }
+
     private void FindNearestEnemy()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // Tag your enemy GameObjects as "Enemy."
+        GameObject closestObject = null;
         float closestDistance = float.MaxValue;
-        GameObject nearestEnemy = null;
+        Vector3 triggerCenter = transform.position; // Center of the trigger zone
 
-        foreach (GameObject e in enemies)
+        foreach (GameObject obj in enemiesInRange)
         {
-            float distance = Vector2.Distance(transform.position, e.transform.position);
+            float distance = Vector3.Distance(triggerCenter, obj.transform.position);
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                nearestEnemy = e;
+                closestObject = obj;
+                target = closestObject.transform;
             }
         }
-
-        target = nearestEnemy != null ? nearestEnemy.transform : null;
     }
 
     private void Shoot()

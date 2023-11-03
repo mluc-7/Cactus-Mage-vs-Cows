@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 313535225524386295}
   - component: {fileID: 313535225524386294}
   - component: {fileID: -4588341277106537184}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LittleCow
   m_TagString: Enemy
   m_Icon: {fileID: 0}

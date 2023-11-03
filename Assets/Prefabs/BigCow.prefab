@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 313535225524386294}
   - component: {fileID: -4588341277106537184}
   - component: {fileID: -7533411631617707575}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: BigCow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
