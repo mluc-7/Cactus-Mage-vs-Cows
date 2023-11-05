@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 58456276}
   - component: {fileID: 58456275}
   - component: {fileID: 58456278}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 63186272}
   - component: {fileID: 63186274}
   - component: {fileID: 63186273}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 93178472}
   - component: {fileID: 93178474}
   - component: {fileID: 93178473}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: UpgradePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 108224630}
   - component: {fileID: 108224629}
   - component: {fileID: 108224628}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: UpgradeButton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 152404548}
   - component: {fileID: 152404550}
   - component: {fileID: 152404549}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -943,7 +943,7 @@ GameObject:
   - component: {fileID: 155439119}
   - component: {fileID: 155439118}
   - component: {fileID: 155439117}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: UpgradeButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 183524307}
   - component: {fileID: 183524309}
   - component: {fileID: 183524308}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 263753671}
   - component: {fileID: 263753673}
   - component: {fileID: 263753672}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 307568311}
   - component: {fileID: 307568310}
   - component: {fileID: 307568309}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: UpgradeButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1591,7 @@ GameObject:
   - component: {fileID: 307791116}
   - component: {fileID: 307791115}
   - component: {fileID: 307791114}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,7 +2043,7 @@ GameObject:
   - component: {fileID: 359068564}
   - component: {fileID: 359068566}
   - component: {fileID: 359068565}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2281,7 +2281,7 @@ GameObject:
   - component: {fileID: 577924487}
   - component: {fileID: 577924489}
   - component: {fileID: 577924488}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HpBarContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2358,7 +2358,7 @@ GameObject:
   - component: {fileID: 602247494}
   - component: {fileID: 602247493}
   - component: {fileID: 602247492}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: HpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2508,7 +2508,7 @@ GameObject:
   - component: {fileID: 643930693}
   - component: {fileID: 643930692}
   - component: {fileID: 643930691}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2523,7 +2523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643930689}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2544,10 +2544,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   shootRange: 10
-  fireRate: 3
+  fireRate: 10
   firePoint: {fileID: 1396277965}
   bulletPrefab: {fileID: 7261231021241925279, guid: 206b1231acea9c947a0b191e333c590c, type: 3}
   enemiesInRange: []
+  target: {fileID: 0}
 --- !u!58 &643930692
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2563,7 +2564,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2577,7 +2578,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2591,7 +2592,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643930689}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2621,7 +2622,7 @@ GameObject:
   - component: {fileID: 655071413}
   - component: {fileID: 655071415}
   - component: {fileID: 655071414}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2755,7 +2756,7 @@ GameObject:
   - component: {fileID: 677518123}
   - component: {fileID: 677518125}
   - component: {fileID: 677518124}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CoinText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2889,7 +2890,7 @@ GameObject:
   - component: {fileID: 732649679}
   - component: {fileID: 732649681}
   - component: {fileID: 732649680}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CloseButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3024,7 +3025,7 @@ GameObject:
   - component: {fileID: 760796583}
   - component: {fileID: 760796582}
   - component: {fileID: 760796581}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3158,7 +3159,7 @@ GameObject:
   - component: {fileID: 800526976}
   - component: {fileID: 800526975}
   - component: {fileID: 800526978}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ExitToMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3302,7 +3303,7 @@ GameObject:
   - component: {fileID: 842581945}
   - component: {fileID: 842581947}
   - component: {fileID: 842581946}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3437,7 +3438,7 @@ GameObject:
   - component: {fileID: 898743791}
   - component: {fileID: 898743790}
   - component: {fileID: 898743789}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: TimerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3583,7 +3584,7 @@ GameObject:
   - component: {fileID: 1017885397}
   - component: {fileID: 1017885399}
   - component: {fileID: 1017885398}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3658,7 +3659,7 @@ GameObject:
   - component: {fileID: 1029763161}
   - component: {fileID: 1029763163}
   - component: {fileID: 1029763162}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3794,7 +3795,7 @@ GameObject:
   - component: {fileID: 1055327063}
   - component: {fileID: 1055327065}
   - component: {fileID: 1055327064}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3871,7 +3872,7 @@ GameObject:
   - component: {fileID: 1075751030}
   - component: {fileID: 1075751029}
   - component: {fileID: 1075751028}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: UpgradeButton4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4016,7 +4017,7 @@ GameObject:
   - component: {fileID: 1140782445}
   - component: {fileID: 1140782444}
   - component: {fileID: 1140782443}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: LevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4150,7 +4151,7 @@ GameObject:
   - component: {fileID: 1187642348}
   - component: {fileID: 1187642350}
   - component: {fileID: 1187642349}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: UpgradePanelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4426,7 +4427,7 @@ GameObject:
   - component: {fileID: 1320016948}
   - component: {fileID: 1320016949}
   - component: {fileID: 1320016950}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4660,7 +4661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1396277965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4693,7 +4694,7 @@ GameObject:
   - component: {fileID: 1566367506}
   - component: {fileID: 1566367508}
   - component: {fileID: 1566367507}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ExitToMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4827,7 +4828,7 @@ GameObject:
   - component: {fileID: 1601224170}
   - component: {fileID: 1601224172}
   - component: {fileID: 1601224171}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4961,7 +4962,7 @@ GameObject:
   - component: {fileID: 1772013786}
   - component: {fileID: 1772013788}
   - component: {fileID: 1772013787}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MainMenuButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5095,7 +5096,7 @@ GameObject:
   - component: {fileID: 1791422985}
   - component: {fileID: 1791422987}
   - component: {fileID: 1791422986}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: LevelCompletePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5172,7 +5173,7 @@ GameObject:
   - component: {fileID: 1794506556}
   - component: {fileID: 1794506558}
   - component: {fileID: 1794506557}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: LevelCompleteText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5305,7 +5306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1995513174}
   - component: {fileID: 1995513175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5562,7 +5563,7 @@ GameObject:
   - component: {fileID: 2053150867}
   - component: {fileID: 2053150866}
   - component: {fileID: 2053150865}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5696,7 +5697,7 @@ GameObject:
   - component: {fileID: 2086218835}
   - component: {fileID: 2086218834}
   - component: {fileID: 2086218833}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: ExitToMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5841,7 +5842,7 @@ GameObject:
   - component: {fileID: 2091087072}
   - component: {fileID: 2091087071}
   - component: {fileID: 2091087073}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: XpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ShootingController : MonoBehaviour
 {
@@ -72,11 +73,10 @@ public class ShootingController : MonoBehaviour
     {
         GameObject closestObject = null;
         float closestDistance = float.MaxValue;
-        Vector3 triggerCenter = transform.position; // Center of the trigger zone
 
         foreach (GameObject obj in enemiesInRange)
         {
-            float distance = Vector3.Distance(triggerCenter, obj.transform.position);
+            float distance = Vector3.Distance(transform.position, obj.transform.position);
             if (distance < closestDistance)
             {
                 closestDistance = distance;
@@ -88,9 +88,9 @@ public class ShootingController : MonoBehaviour
 
     private void Shoot()
     {
-        Vector3 direction = target.transform.position - transform.position;
-        float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
-        Quaternion rotDirection = Quaternion.Euler(0, 0, rot);
+        Vector2 direction = target.transform.position - transform.position;
+        float rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+        Quaternion rotDirection = Quaternion.Euler(0, 0, rotation);
         Instantiate(bulletPrefab, firePoint.position, rotDirection);
 
     }
